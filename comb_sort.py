@@ -1,11 +1,26 @@
 # comb_sort.py
+from typing import List
 
-def comb_sort(arr):
-    pass
+def next_gap(current: int) -> int:
+    return max(1, int( current / 1.3) )
+
+def comb_sort(arr: List[int]) -> List[int]:
+    n = len(arr)
+    gap = n
+    swapped = True
+    while gap != 1 or swapped:
+        gap = next_gap(gap)
+        swapped = False
+        for i in range(0, n-gap): #pythonic way. when i reaches n-gap end will be n, so range 0 to n - gap.
+            if arr[i] > arr[i+gap]:
+                arr[i], arr[i+gap] = arr[i+gap], arr[i]
+                swapped = True
+    return arr
 
 def main():
-    arr = [4, 3, 6, 7, 8, 9, 4, 5, 6, 3, 5, 5, 3, 2, 1, 3, 5, 6, 7, 8, 3]
+    #arr = [4, 3, 6, 7, 8, 9, 4, 5, 6, 3, 5, 5, 3, 2, 1, 3, 5, 6, 7, 8, 3]
+    arr = [2, 0, 3, 4, 5, 6, 1] #used comb_sort_tester to find an example which needs at least one more pass after gap is 1 to be sorted.
     print(comb_sort(arr))
 
-if __name__=='main':
+if __name__=='__main__':
     main()
