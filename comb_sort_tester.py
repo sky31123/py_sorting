@@ -1,3 +1,4 @@
+# to check if we ever reach to gap 1, which we do
 from itertools import permutations
 
 def next_gap(current: int) -> int:

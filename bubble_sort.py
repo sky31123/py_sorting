@@ -10,10 +10,11 @@ def bubble_sort(arr):
                 swapped = True
         if not swapped:
             break
+        print(arr[len(arr)-1])
     return arr
 
 def main():
-    arr = [4,3,6,7,8,9,4,5,6,3,5,5,3,2,1,3,5,6,7,8,3]
+    arr = [4,3,6,7,8,9,4,10,5,6,3,5,5,3,2,1,3,5,6,7,8,3]
     print(bubble_sort(arr))
 
 if __name__ == '__main__':
